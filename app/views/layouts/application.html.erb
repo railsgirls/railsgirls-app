@@ -2,13 +2,31 @@
 <html>
 <head>
   <title>Railsgirls</title>
+  <link rel="stylesheet" href="http://railsgirls.com/assets/bootstrap.css">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">The Idea app</a>
+        <ul class="nav">
+          <li class="active"><a href="/ideas">Ideas</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 
+  <footer>
+    <div class="container">
+      Rails Girls 2012
+    </div>
+  </footer>
 </body>
 </html>
