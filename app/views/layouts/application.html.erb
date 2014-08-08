@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Railsgirls</title>
-  <link rel="stylesheet" href="http://railsgirls.com/assets/bootstrap.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -14,6 +14,7 @@
         <a class="brand" href="/">The Idea app</a>
         <ul class="nav">
           <li class="active"><a href="/ideas">Ideas</a></li>
+          <li><%= link_to 'New Idea', new_idea_path %></li>
         </ul>
       </div>
     </div>

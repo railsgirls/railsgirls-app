@@ -1,27 +1,13 @@
 <h1>Listing ideas</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Picture</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @ideas.each do |idea| %>
-  <tr>
-    <td><%= idea.name %></td>
-    <td><%= idea.description %></td>
-    <td><%= idea.picture %></td>
-    <td><%= link_to 'Show', idea %></td>
-    <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
-    <td><%= link_to 'Destroy', idea, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+<% @ideas.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |idea| %>
+      <div class="span4">
+        <%= image_tag idea.picture_url, :width => '100%' if idea.picture.present?%>
+        <h4><%= link_to idea.name, idea %></h4>
+        <%= idea.description %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Idea', new_idea_path %>
