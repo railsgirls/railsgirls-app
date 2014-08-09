@@ -1,6 +1,7 @@
 Railsgirls::Application.routes.draw do
+  resources :photos
   resources :ideas
-  root :to => redirect("/ideas")
+  root :to => redirect("/photos")
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

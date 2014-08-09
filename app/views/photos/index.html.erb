@@ -1,0 +1,14 @@
+<h1>List of Photos</h1>
+
+<% @photos.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |photo| %>
+      <div class="span4">
+        <%= image_tag photo.picture_url, :width => '100%' if photo.picture.present?%>
+        <h4><%= link_to photo.title, photo %></h4>
+        <%= photo.description %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
