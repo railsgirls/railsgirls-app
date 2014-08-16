@@ -15,7 +15,7 @@ group :production do
   gem 'rails_12factor'
 end
 gem 'carrierwave'
-
+gem "fog", "~> 1.3.1"
 
 # Gems used only for assets and not required
 # in production environments by default.
