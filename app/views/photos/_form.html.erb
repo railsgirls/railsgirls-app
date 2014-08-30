@@ -12,17 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><!--<br />-->
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
+  <br />
   <div class="field">
-    <%= f.label :description %><!--<br />-->
+    <%= f.label :description %>
     <%= f.text_area :description, rows:5 %>
   </div>
+  <br />
   <div class="field">
-    <%= f.label :picture %><!--<br />-->
+    <%= f.label :picture %>
     <%= f.file_field :picture %>
   </div>
+  <br />
   <div class="actions">
     <%= f.submit 'Submit', class:'btn' %>
   </div>
