@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class:'form-control' %>
   </div>
   <br />
   <div class="field">
     <%= f.label :description %>
-    <%= f.text_area :description, rows:5 %>
+    <%= f.text_area :description, rows:5, class:'form-control' %>
   </div>
   <br />
   <div class="field">
@@ -27,6 +27,6 @@
   </div>
   <br />
   <div class="actions">
-    <%= f.submit 'Submit', class:'btn' %>
+    <%= f.submit 'Submit', class:'btn btn-default' %>
   </div>
 <% end %>

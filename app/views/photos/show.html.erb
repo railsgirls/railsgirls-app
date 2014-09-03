@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="span9">
+  <div class="col-xs-9">
     <%= image_tag(@photo.picture_url, :width => "100%") if @photo.picture.present? %>
   </div>
 
-  <div class="span3">
+  <div class="col-xs-3">
     <p><b>Name: </b><%= @photo.title %></p>
     <p><b>Description: </b><%= @photo.description %></p>
     <p>
