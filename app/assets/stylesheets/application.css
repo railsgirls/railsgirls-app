@@ -18,4 +18,4 @@ table, td, th { vertical-align: middle !important; border: none !important; }
 th { border-bottom: 1px solid #DDD !important; }
 td.picture { width: 140px; }
 td.picture img { width: 140px; }
-.span4 { padding-bottom: 30px; }
+.photo { padding-bottom: 30px; }
