@@ -1,20 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @idea.name %>
-</p>
+<div class="row">
+  <div class="span9">
+    <%= image_tag(@idea.picture_url, :width => "100%") if @idea.picture.present? %>
+  </div>
 
-<p>
-  <b>Description:</b>
-  <%= @idea.description %>
-</p>
-
-<p>
-  <b>Picture:</b>
-  <%= image_tag(@idea.picture_url, :width => 600) if @idea.picture.present? %>
-</p>
-
-
-<%= link_to 'Edit', edit_idea_path(@idea) %> |
-<%= link_to 'Back', ideas_path %>
+  <div class="span3">
+    <p><b>Name: </b><%= @idea.name %></p>
+    <p><b>Description: </b><%= @idea.description %></p>
+    <p>
+      <%= link_to 'Edit', edit_idea_path(@idea) %> |
+      <%= link_to 'Destroy', @idea, confirm: 'Are you sure?', method: :delete %> |
+      <%= link_to 'Back', ideas_path %>
+    </p>
+  </div>
+</div>
