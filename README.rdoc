@@ -11,11 +11,11 @@ persist themselves to a database. The controller handles the incoming requests
 (such as Save New Account, Update Product, Show Post) by manipulating the model
 and directing data to the view.
 
-In Rails, the model is handled by what's called an object-relational mapping
+In Rails, the model is handled by what's called an object-relational mapping (ORM)
 layer entitled Active Record. This layer allows you to present the data from
 database rows as objects and embellish these data objects with business logic
 methods. You can read more about Active Record in
-link:files/vendor/rails/activerecord/README.html.
+http://guides.rubyonrails.org/active_record_basics.html
 
 The controller and view are handled by the Action Pack, which handles both
 layers by its two parts: Action View and Action Controller. These two layers
@@ -41,7 +41,7 @@ link:files/vendor/rails/actionpack/README.html.
 the following resources handy:
 
 * The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
-* Ruby on Rails Tutorial Book: http://www.railstutorial.org/
+* Ruby on Rails Tutorial Book: http://www.railstutorial.org
 
 
 == Debugging Rails
@@ -69,9 +69,10 @@ The result will be a message in your log file along the lines of:
 
   Mon Oct 08 14:22:29 +1000 2007 Destroyed Weblog ID #1!
 
-More information on how to use the logger is at http://www.ruby-doc.org/core/
+More information on how to use the logger
+is at http://guides.rubyonrails.org/debugging_rails_applications.html#the-logger
 
-Also, Ruby documentation can be found at http://www.ruby-lang.org/. There are
+Also, Ruby documentation can be found at http://www.ruby-lang.org. There are
 several books available online as well:
 
 * Programming Ruby: http://www.ruby-doc.org/docs/ProgrammingRuby/ (Pickaxe)
@@ -83,39 +84,27 @@ programming in general.
 
 == Debugger
 
-Debugger support is available through the debugger command when you start your
-Mongrel or WEBrick server with --debugger. This means that you can break out of
-execution at any point in the code, investigate and change the model, and then,
-resume execution! You need to install ruby-debug to run the server in debugging
-mode. With gems, use <tt>sudo gem install ruby-debug</tt>. Example:
+Rails 5 comes with the byebug gem by default, meaning no extra setup steps
+need to be taken. Simply add <tt>byebug</tt> at the point you want your code to pause,
+and you're done! Example:
 
   class WeblogController < ActionController::Base
     def index
-      @posts = Post.all
-      debugger
+      byebug
+      @weblogs = Weblog.all
     end
   end
 
-So the controller will accept the action, run the first line, then present you
-with a IRB prompt in the server window. Here you can do things like:
+Start your Rails server <tt>bundle exec rails server</tt>, complete the action that
+would normally trigger the code, then do whatever checks you need in your server
+Terminal or Command Line window. You can perform many Ruby commands, access data
+and code in your application, or use byebug methods (such as <tt>where</tt> to display
+the backtrace). If you'd like to continue the code execution past the breakpoint
+you can type <tt>next</tt> to execute the next line of code and pause, or <tt>continue</tt> to
+carry on with execution as per usual.
 
-  >> @posts.inspect
-  => "[#<Post:0x14a6be8
-          @attributes={"title"=>nil, "body"=>nil, "id"=>"1"}>,
-       #<Post:0x14a6620
-          @attributes={"title"=>"Rails", "body"=>"Only ten..", "id"=>"2"}>]"
-  >> @posts.first.title = "hello from a debugger"
-  => "hello from a debugger"
-
-...and even better, you can examine how your runtime objects actually work:
-
-  >> f = @posts.first
-  => #<Post:0x13630c4 @attributes={"title"=>nil, "body"=>nil, "id"=>"1"}>
-  >> f.
-  Display all 152 possibilities? (y or n)
-
-Finally, when you're ready to resume execution, you can enter "cont".
-
+You can read more about using byebug with your Rails app here:
+http://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-byebug-gem
 
 == Console
 
@@ -137,9 +126,11 @@ Options:
 
 To reload your controllers and models after launching the console run
 <tt>reload!</tt>
+This is something you might want to do if you make code changes to your app
+while the console is open.
 
 More information about irb can be found at:
-link:http://www.rubycentral.org/pickaxe/irb.html
+http://ruby-doc.com/docs/ProgrammingRuby/html/irb.html
 
 
 == dbconsole
