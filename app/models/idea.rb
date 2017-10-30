@@ -1,3 +1,3 @@
-class Idea < ActiveRecord::Base
+class Idea < ApplicationRecord
   mount_uploader :picture, PictureUploader
 end

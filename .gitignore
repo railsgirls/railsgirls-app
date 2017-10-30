@@ -13,3 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore images uploaded to contributors' instances of app
+public/uploads/*
+
+.DS_Store
