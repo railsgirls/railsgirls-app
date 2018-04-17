@@ -1,29 +1,32 @@
-<%= form_for(@idea, :html => {:multipart => true}) do |f| %>
-  <% if @idea.errors.any? %>
+<%= form_with(model: idea, local: true) do |form| %>
+  <% if idea.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+      <h2><%= pluralize(idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
 
       <ul>
-      <% @idea.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <% idea.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :idea_name %>
   </div>
+
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :idea_description %>
   </div>
+
   <div class="field">
-    <%= f.label :picture %><br />
-    <%= f.file_field :picture %>
+    <%= form.label :picture %>
+    <%= form.file_field :picture, id: :idea_picture %>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= form.submit %>
   </div>
 <% end %>

@@ -1,27 +1,31 @@
-<h1>Listing ideas</h1>
+<p id="notice"><%= notice %></p>
+
+<h1>Ideas</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Picture</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<% @ideas.each do |idea| %>
-  <tr>
-    <td><%= idea.name %></td>
-    <td><%= idea.description %></td>
-    <td><%= idea.picture %></td>
-    <td><%= link_to 'Show', idea %></td>
-    <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
-    <td><%= link_to 'Destroy', idea, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td><%= idea.name %></td>
+        <td><%= idea.description %></td>
+        <td><%= idea.picture %></td>
+        <td><%= link_to 'Show', idea %></td>
+        <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
+        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
+<br>
 
 <%= link_to 'New Idea', new_idea_path %>
